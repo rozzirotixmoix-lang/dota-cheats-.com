@@ -17,7 +17,7 @@ export const PAGE_SEO:Record<string,PageSeoEntry>={
     "description": "Features FAQ covering terminology, compatibility, external purchases, and the practical details to confirm before visiting a seller's checkout page."
   },
   "/about/": {
-    "title": "Resource – Dota 2 Feature Information | Cheats",
+    "title": "Resource – Dota 2 Feature Information | Dota Cheats",
     "description": "This independent resource explains Dota 2 feature terminology, affiliate purchase links, and clearly labeled discussion examples for visitors."
   },
   "/support/": {

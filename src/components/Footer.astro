@@ -3,16 +3,19 @@ import { t } from '../i18n';
 import { Separator } from '@/components/starwind/separator';
 
 const resourceLinks = [
-  { href: '/forum/', label: 'Forums', ariaLabel: 'Forums' },
-  { href: '/reviews/', label: 'Review examples', ariaLabel: 'Review examples' },
-  { href: '/products/dota-2-cheats/', label: 'Feature catalog', ariaLabel: 'Feature catalog' },
-  { href: '/support/', label: t.footer.support },
+  { href: '/support/', label: 'Purchase support', ariaLabel: 'Purchase support' },
 ];
 
 const legalLinks = [
   { href: '/about/', label: t.footer.about },
   { href: '/privacy/', label: t.footer.privacy },
   { href: '/terms/', label: t.footer.terms },
+];
+const pageUrl = encodeURIComponent(Astro.url.href);
+const shareText = encodeURIComponent(t.site.title);
+const shareLinks = [
+  { href: `https://twitter.com/intent/tweet?url=${pageUrl}&text=${shareText}`, label: 'Share on X' },
+  { href: `https://t.me/share/url?url=${pageUrl}&text=${shareText}`, label: 'Share on Telegram' },
 ];
 ---
 
@@ -67,6 +70,14 @@ const legalLinks = [
             </li>
           ))}
         </ul>
+        <div class="mt-5">
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Share</p>
+          <ul class="mt-3 space-y-2">
+            {shareLinks.map((link) => (
+              <li><a href={link.href} class="text-sm text-muted-foreground hover:text-primary">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </div>
 

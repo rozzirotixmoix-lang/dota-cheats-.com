@@ -28,18 +28,18 @@ const readField = (block: string, label: string) => {
 
 const articleSeoOverrides: Record<string, Pick<BlogArticle, 'title' | 'metaTitle' | 'metaDescription'>> = {
   'dota-2-cheats-commands-codes': {
-    title: 'Commands: Dota 2 Cheat Codes Guide',
-    metaTitle: 'Commands: Dota 2 Cheat Codes Guide | Dota Cheats',
+    title: 'Commands: Which Built-In Options Work for Dota 2 Cheats',
+    metaTitle: 'Commands – Learn Which Built-In Options Work | Dota Cheats',
     metaDescription: 'Commands for Dota 2 private lobbies: learn which built-in options work for testing and which are restricted in public matches.',
   },
   'best-dota-2-console-commands': {
-    title: 'Console Commands: Testing and Setup Guide',
+    title: 'Console Commands: Dota 2 Cheats Testing and Setup Guide',
     metaTitle: 'Console Commands: Testing & Setup Guide | Dota Cheats',
     metaDescription: 'Console commands for private practice, configuration, and testing. Learn how to open the developer console and use supported settings.',
   },
   'dota-2-cheats-not-working-fix': {
-    title: 'Cheat Commands: Common Fixes for Dota 2',
-    metaTitle: 'Cheat Commands: Common Fixes for Dota 2 | Dota Cheats',
+    title: 'Cheat Fixes: Dota 2 Private Lobby Settings and Cheats',
+    metaTitle: 'Cheat Fixes: Dota 2 Private Lobby Settings | Cheats',
     metaDescription: 'Cheat command troubleshooting for private lobbies: check settings, syntax, permissions, and developer-console access step by step.',
   },
 };
