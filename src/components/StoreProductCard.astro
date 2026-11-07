@@ -1,0 +1,73 @@
+---
+import type { StoreProduct } from '../data/storeProducts';
+import Icon from './icons/Icon.astro';
+
+interface Props {
+  product: StoreProduct;
+}
+
+const { product } = Astro.props;
+---
+
+<article class="store-product-card flex h-full min-h-[22rem] flex-col rounded-2xl border p-6">
+  <div>
+    <h2 class="text-xl font-bold text-white">{product.title}</h2>
+    <div class="mt-4 flex flex-wrap gap-2" aria-label={`${product.title} categories`}>
+      <span class="store-product-card__category inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium">
+        <Icon name={product.categoryIcon} size={13} />
+        {product.category}
+      </span>
+      <span class="store-product-card__overview inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium">
+        <Icon name="circleCheck" size={13} />
+        Feature overview
+      </span>
+    </div>
+  </div>
+
+  <ul class="mt-6 space-y-3 text-sm text-neutral-400">
+    {product.features.map((feature) => (
+      <li class="flex items-start gap-2.5">
+        <Icon name="check" size={15} class="mt-0.5 shrink-0 text-[#b388ff]" />
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <div class="mt-auto border-t border-white/10 pt-5">
+    <div class="grid grid-cols-2 gap-3">
+      <a href={product.buyUrl} class="store-product-card__buy inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-semibold">
+        Buy now <Icon name="arrowRight" size={16} />
+      </a>
+      <a href={product.detailsUrl} class="store-product-card__details inline-flex items-center justify-center gap-1.5 rounded-lg border px-3 py-2.5 text-sm font-semibold">
+        View details <Icon name="arrowRight" size={16} />
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .store-product-card {
+    border-color: rgb(255 255 255 / 11%);
+    background: #161220;
+    box-shadow: 0 10px 28px rgb(4 3 6 / 20%);
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .store-product-card:hover {
+    transform: translateY(-4px);
+    border-color: rgb(179 136 255 / 52%);
+    box-shadow: 0 14px 34px rgb(179 136 255 / 17%);
+  }
+
+  .store-product-card:focus-within {
+    border-color: rgb(179 136 255 / 62%);
+    box-shadow: 0 0 0 3px rgb(179 136 255 / 18%), 0 14px 34px rgb(179 136 255 / 17%);
+  }
+
+  .store-product-card__category { border-color: rgb(179 136 255 / 58%); color: #c9adff; }
+  .store-product-card__overview { border-color: rgb(255 255 255 / 12%); background: rgb(4 3 6 / 38%); color: #b9b2c5; }
+  .store-product-card__buy { background: #b388ff; color: #160d26; }
+  .store-product-card__buy:hover { background: #c3a1ff; }
+  .store-product-card__details { border-color: rgb(255 255 255 / 14%); background: #0d0b14; color: #f5f3ff; }
+  .store-product-card__details:hover { border-color: rgb(179 136 255 / 58%); background: #1d1729; }
+</style>

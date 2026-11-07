@@ -1,0 +1,8 @@
+---
+import Icon from './icons/Icon.astro';
+
+interface Props { href: string; class?: string; ariaLabel?: string; }
+const { href, class: className, ariaLabel = 'View details' } = Astro.props;
+---
+
+<a href={href} aria-label={ariaLabel} class:list={['view-details-button inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#f8f7fc] text-[15px] font-bold text-[#14101f] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#b388ff]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#14101f]', className]}><span>View details</span><Icon name="arrowRight" size={17} strokeWidth={1.9} /></a>

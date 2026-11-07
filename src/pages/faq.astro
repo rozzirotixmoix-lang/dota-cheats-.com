@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {getAllFaqs} from '../data/faq';
+import {resolvePageSeo} from '../config/seo';
+import {breadcrumbSchema,faqPageSchema} from '../utils/schema';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SiteFaqSection from '../components/SiteFaqSection.astro';
+const seo=resolvePageSeo('/faq/');
+const faqs=getAllFaqs();
+const breadcrumbs=[{name:'Home',path:'/'},{name:'FAQ',path:'/faq/'}];
+---
+<BaseLayout title={seo.title} description={seo.description} jsonLd={[breadcrumbSchema(breadcrumbs),faqPageSchema(faqs.map((f,i)=>({num:String(i+1),q:f.q,a:f.a})))]}>
+<section class="pt-8"><div class="mx-auto max-w-6xl px-5"><Breadcrumbs items={breadcrumbs}/><h1 class="mt-8 text-3xl font-bold">Dota 2 cheats: frequently asked questions</h1></div></section>
+<SiteFaqSection items={faqs} variant="full"/>
+</BaseLayout>

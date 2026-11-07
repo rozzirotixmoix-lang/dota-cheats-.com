@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ReviewCard from '../../components/ReviewCard.astro';
+import {reviews} from '../../data/reviews';
+import type {GetStaticPaths} from 'astro';
+export const getStaticPaths=(async({paginate})=>paginate(reviews,{pageSize:12})) satisfies GetStaticPaths;
+const {page}=Astro.props;
+const pageNumber=page.currentPage;
+const title='Dota 2 Review Examples — Page '+pageNumber+' | Dota Cheats';
+const description='Browse illustrative Dota 2 feature feedback, page '+pageNumber+'. Fictional examples demonstrate varied perspectives; they are not verified customer reviews.';
+---
+<BaseLayout title={title} description={description} noindex={true}>
+<section class="py-10 md:py-16"><div class="mx-auto max-w-6xl px-5">
+<Breadcrumbs items={[{name:'Home',path:'/'},{name:'Review examples',path:'/reviews/'}]}/>
+<h1 class="mt-8 text-3xl font-bold md:text-4xl">Dota 2 review examples</h1>
+<p class="mt-4 max-w-3xl text-muted-foreground">These 104 entries are fictional examples for reviewing the site layout. They are not real customer feedback, verified ratings or evidence of product performance.</p>
+<p class="mt-4 text-sm text-muted-foreground">Page {pageNumber} of {page.lastPage} · Showing {page.start+1}–{page.end+1} of {page.total}</p>
+<div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{page.data.map(review=><ReviewCard review={review}/>)}</div>
+<nav class="mt-10 flex flex-wrap items-center justify-center gap-3" aria-label="Review pages">
+{page.url.prev && <a class="rounded-lg border border-border px-4 py-2 hover:border-primary" href={page.url.prev} rel="prev">Previous</a>}
+{Array.from({length:page.lastPage},(_,i)=>i+1).map(n=><a class:list={['rounded-lg border px-4 py-2',n===pageNumber?'border-primary bg-primary/15':'border-border hover:border-primary']} href={n===1?'/reviews/':'/reviews/'+n+'/'} aria-current={n===pageNumber?'page':undefined} aria-label={'Review examples page '+n}>{n}</a>)}
+{page.url.next && <a class="rounded-lg border border-border px-4 py-2 hover:border-primary" href={page.url.next} rel="next">Next</a>}
+</nav>
+</div></section>
+</BaseLayout>

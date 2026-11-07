@@ -1,0 +1,11 @@
+---
+import {reviews} from '../data/reviews';
+import ReviewCard from './ReviewCard.astro';
+import SectionHeader from './SectionHeader.astro';
+import {Button} from '@/components/starwind/button';
+---
+<section class="py-16 md:py-24"><div class="mx-auto max-w-6xl px-5">
+<SectionHeader eyebrow="Review examples" title="Different priorities. Different perspectives." desc="104 illustrative reviews show the feedback layout. These are fictional examples, not verified customer submissions or product endorsements."/>
+<div class="mt-10 grid gap-5 md:grid-cols-3">{[reviews[0],reviews[5],reviews[14]].map(review=><ReviewCard review={review}/>)}</div>
+<div class="mt-8 text-center"><Button as="a" href="/reviews/" variant="outline">Browse review examples</Button></div>
+</div></section>

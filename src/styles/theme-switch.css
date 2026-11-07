@@ -1,0 +1,89 @@
+/* Compact light / dark mode slider */
+.theme-mode-switch {
+  --width-of-switch: 3.7em;
+  --height-of-switch: 2em;
+  --size-of-icon: 1.55em;
+  --slider-offset: 0.23em;
+
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+  font-size: 14px;
+  line-height: 0;
+}
+
+.theme-mode-switch--sm {
+  font-size: 12px;
+}
+
+.theme-mode-switch--md {
+  font-size: 15px;
+}
+
+.theme-mode-switch input {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.theme-mode-switch__slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border-radius: 30px;
+  background: linear-gradient(100deg, #4a3a7a, #5b4a9a);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.theme-mode-switch__slider::before {
+  position: absolute;
+  top: 50%;
+  left: var(--slider-offset);
+  width: var(--size-of-icon);
+  height: var(--size-of-icon);
+  border-radius: 20px;
+  background: #f7f6fb;
+  transform: translateY(-50%);
+  transition:
+    left 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+  content: '';
+}
+
+.theme-mode-switch input:checked + .theme-mode-switch__slider {
+  background: linear-gradient(100deg, #4a3a7a, #5b4a9a);
+}
+
+.theme-mode-switch input:checked + .theme-mode-switch__slider::before {
+  left: calc(100% - (var(--size-of-icon) + var(--slider-offset)));
+  background: #f7f6fb;
+}
+
+.theme-mode-switch__slider .icon-app {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: calc(100% - (var(--size-of-icon) + var(--slider-offset)) + 0.15em);
+  color: #3f3268;
+  opacity: 1;
+  transform: translateY(-50%);
+  transition: left 0.4s ease, opacity 0.2s ease;
+}
+
+.theme-mode-switch input:checked + .theme-mode-switch__slider .icon-app {
+  left: calc(var(--slider-offset) + 0.15em);
+}
+
+.theme-mode-switch:focus-within .theme-mode-switch__slider {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 40%, transparent);
+}

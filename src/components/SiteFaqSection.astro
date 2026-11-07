@@ -1,0 +1,7 @@
+---
+import type {SiteFaqItem} from '../data/faq';
+import FaqSection from './FaqSection.astro';
+interface Props {items:SiteFaqItem[];id?:string;titleId?:string;variant?:'full'|'contextual';class?:string;}
+const {items,id,titleId='faq-heading',variant='contextual',class:className}=Astro.props;
+---
+<FaqSection items={items} id={id} titleId={titleId} eyebrow="Questions & answers" title="Read this before checkout" subtitle="Feature terminology, compatibility and purchase details." showFilters={variant==='full'} class={className}/>

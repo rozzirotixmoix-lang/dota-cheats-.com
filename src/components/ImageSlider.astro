@@ -1,0 +1,121 @@
+---
+import { HERO_SLIDE_DELAY } from '../data/showcase';
+import type { SiteImage } from '../data/showcase';
+
+interface Props { images: SiteImage[]; id: string; }
+const { images, id } = Astro.props;
+const slides = images;
+---
+
+<section class="home-slider relative min-w-0 w-full overflow-hidden rounded-xl border border-border bg-card p-2 shadow-sm" id={id} aria-roledescription="carousel" aria-label="Dota 2 showcase" data-home-slider data-delay={HERO_SLIDE_DELAY} data-slide-count={images.length}>
+  <div class="home-slider__frame aspect-[16/10] overflow-hidden">
+  <div class="home-slider__track flex" data-slider-track>
+    {slides.map((image, index) => (
+      <figure class="home-slider__slide min-w-full">
+        <div class="relative h-full w-full overflow-hidden bg-gradient-to-br from-[#211938] to-[#0d0b14]">
+          <img
+            src={image.src}
+            width="1600"
+            height="1000"
+            alt={image.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : undefined}
+            decoding="async"
+            class="h-full w-full object-cover" data-slider-image
+          />
+          <div class="absolute inset-0 hidden items-center justify-center" data-slider-fallback aria-hidden="true"><img src="/logo.svg" alt="" class="w-16 opacity-70" /></div>
+        </div>
+      </figure>
+    ))}
+  </div></div>
+</section>
+
+<style>
+  .home-slider__frame { position: relative; }
+  .home-slider__track { gap: 0; margin: 0; padding: 0; transform: translateX(0); transition: transform 700ms ease; will-change: transform; }
+  .home-slider__slide { flex: 0 0 100%; width: 100%; margin: 0; padding: 0; border: 0; }
+  .home-slider__slide img { display: block; }
+  .home-slider__track.is-resetting { transition: none; }
+  @media (prefers-reduced-motion: reduce) { .home-slider__track { transition: opacity 250ms ease; } }
+</style>
+
+<script>
+  type SliderState = { cleanup: () => void };
+  const sliderStates = new WeakMap<HTMLElement, SliderState>();
+
+  const setupSlider = (slider: HTMLElement) => {
+    if (sliderStates.has(slider)) return;
+    const track = slider.querySelector<HTMLElement>('[data-slider-track]');
+    const count = Number(slider.dataset.slideCount ?? 0);
+    const delay = Number(slider.dataset.delay ?? 3000);
+    if (!track || count < 2) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeIndex = 0;
+    let timer: number | undefined;
+    let touchStartX = 0;
+    let isDestroyed = false;
+
+    const preload = (index: number) => {
+      const images = track.querySelectorAll<HTMLImageElement>('img');
+      const nextImage = images[index % count];
+      if (!nextImage || nextImage.complete) return;
+      const preloadImage = new Image();
+      preloadImage.src = nextImage?.src ?? '';
+    };
+
+    const stop = () => { if (timer !== undefined) window.clearInterval(timer); timer = undefined; };
+    const moveTo = (index: number) => {
+      activeIndex = index;
+      preload(index + 1);
+      track.style.transform = `translateX(-${index * 100}%)`;
+    };
+    const advance = () => {
+      if (document.hidden || isDestroyed) return;
+      if (activeIndex === count - 1) {
+        track.classList.add('is-resetting');
+        moveTo(0);
+        window.requestAnimationFrame(() => track.classList.remove('is-resetting'));
+        return;
+      }
+      moveTo(activeIndex + 1);
+    };
+    const start = () => {
+      stop();
+      if (!reduceMotion && !document.hidden) timer = window.setInterval(advance, delay);
+    };
+    const onVisibility = () => document.hidden ? stop() : start();
+    const onTouchStart = (event: TouchEvent) => { touchStartX = event.touches[0]?.clientX ?? 0; stop(); };
+    const onTouchEnd = (event: TouchEvent) => {
+      const distance = (event.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;
+      if (Math.abs(distance) > 40) moveTo(distance < 0 ? (activeIndex + 1) % count : (activeIndex - 1 + count) % count);
+      start();
+    };
+
+    preload(1);
+    slider.addEventListener('touchstart', onTouchStart, { passive: true });
+    slider.addEventListener('touchend', onTouchEnd, { passive: true });
+    document.addEventListener('visibilitychange', onVisibility);
+    start();
+
+    const cleanup = () => {
+      isDestroyed = true;
+      stop();
+      slider.removeEventListener('touchstart', onTouchStart);
+      slider.removeEventListener('touchend', onTouchEnd);
+      document.removeEventListener('visibilitychange', onVisibility);
+      sliderStates.delete(slider);
+    };
+    sliderStates.set(slider, { cleanup });
+  };
+
+  const setupAllSliders = () => document.querySelectorAll<HTMLElement>('[data-home-slider]').forEach(setupSlider);
+  setupAllSliders();
+  document.querySelectorAll<HTMLImageElement>('[data-slider-image]').forEach((image) => image.addEventListener('error', () => {
+    image.hidden = true;
+    image.nextElementSibling?.classList.remove('hidden');
+    image.nextElementSibling?.classList.add('flex');
+  }));
+  document.addEventListener('astro:after-swap', setupAllSliders);
+  document.addEventListener('astro:before-swap', () => document.querySelectorAll<HTMLElement>('[data-home-slider]').forEach((slider) => sliderStates.get(slider)?.cleanup()));
+</script>

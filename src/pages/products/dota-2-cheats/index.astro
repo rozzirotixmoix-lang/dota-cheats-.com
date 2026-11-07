@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Icon from '../../../components/icons/Icon.astro';
+import StorefrontUtilityCard from '../../../components/StorefrontUtilityCard.astro';
+import { featuredStorefrontProduct, utilityStorefrontProducts } from '../../../data/productStorefront';
+import { resolvePageSeo } from '../../../config/seo';
+import { breadcrumbSchema, collectionPageSchema } from '../../../utils/schema';
+
+const seo = resolvePageSeo('/products/dota-2-cheats/');
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Products', path: '/products/dota-2-cheats/' }];
+const trustPoints = ['Instant delivery', '24/7 support', 'Monthly or lifetime plans', 'Partner checkout'];
+---
+
+<BaseLayout title={seo.title} description={seo.description} jsonLd={[collectionPageSchema({ name: 'Products', description: 'Dota 2 products and utility plans.', url: '/products/dota-2-cheats/' }), breadcrumbSchema(breadcrumbs)]}>
+  <section class="bg-[#0d0b14] py-8 md:py-12">
+    <div class="mx-auto max-w-6xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="mx-auto mt-6 max-w-4xl border-b border-white/10 pb-8 text-center md:mt-8 md:pb-10">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#b388ff]">Store</p>
+        <h1 class="mt-3 text-4xl font-bold leading-tight text-white md:text-5xl">Cheats hub | Compare Dota 2 products and utility plans</h1>
+        <p class="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[#9a96aa] md:text-base">Compare Dota 2 cheats and utilities in one place. Each card links to features, requirements, and checkout.</p>
+        <ul class="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3" aria-label="Store benefits">
+          {trustPoints.map((point) => <li class="inline-flex items-center gap-2 text-sm text-[#b9b5c6]"><Icon name="circleCheck" size={16} class="text-[#b388ff]" strokeWidth={1.8} />{point}</li>)}
+        </ul>
+      </header>
+
+      <article class="featured-card mt-7 overflow-hidden rounded-2xl border border-white/10 bg-[#14101f] md:grid md:grid-cols-[42%_58%]">
+        <div class="h-[11.25rem] overflow-hidden bg-[#100d19] md:h-auto">
+          <img src={featuredStorefrontProduct.image} alt="Dota 2 gameplay" class="h-full w-full object-cover object-center" loading="eager" />
+        </div>
+        <div class="flex flex-col p-6">
+          <div class="flex gap-2"><span class="rounded-full bg-white px-2.5 py-1 text-[11px] font-bold text-[#161220]">Main product</span><span class="rounded-full bg-[#f6d469] px-2.5 py-1 text-[11px] font-bold text-[#2b2104]">Limited slots</span></div>
+          <p class="mt-3 text-sm font-bold text-[#d8d4e4]">{featuredStorefrontProduct.title}</p>
+          <p class="mt-2 line-clamp-2 max-w-xl text-sm leading-5 text-[#9a96aa]">{featuredStorefrontProduct.description}</p>
+          <ul class="mt-3 grid grid-cols-2 gap-x-5 gap-y-2" aria-label={`${featuredStorefrontProduct.title} features`}>
+            {featuredStorefrontProduct.features.map((feature) => <li class="flex items-center gap-2 text-[13px] leading-5 text-[#c1bdce]"><Icon name="circleCheck" size={14} class="text-[#b388ff]" strokeWidth={1.8} />{feature}</li>)}
+          </ul>
+          <div class="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex flex-wrap items-center gap-2"><p class="flex items-baseline gap-1.5"><span class="text-xs text-[#8a8699]">From</span><strong class="text-2xl text-white">{featuredStorefrontProduct.price}</strong><span class="text-sm text-[#8a8699]">{featuredStorefrontProduct.priceSuffix}</span></p>{featuredStorefrontProduct.lifetime && <span class="rounded-full bg-[#b388ff]/15 px-2.5 py-1 text-xs font-bold text-[#c9abff]">{featuredStorefrontProduct.lifetime}</span>}</div>
+            <a href={featuredStorefrontProduct.link} class="inline-flex h-11 w-full shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#b388ff] px-5 text-sm font-bold text-[#14101f] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#c4a1ff] hover:shadow-lg hover:shadow-[#b388ff]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#14101f] sm:w-48">View details <Icon name="arrowRight" size={17} strokeWidth={2} /></a>
+          </div>
+        </div>
+      </article>
+
+      <section class="mt-16">
+        <header class="mx-auto max-w-2xl text-center"><p class="text-xs font-bold uppercase tracking-[0.18em] text-[#b388ff]">Utilities</p><h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">More tools we sell</h2><p class="mt-3 text-sm leading-6 text-[#9a96aa] md:text-base">Each utility uses its own license, product page, and checkout route.</p></header>
+        <div class="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">{utilityStorefrontProducts.map((product) => <StorefrontUtilityCard product={product} />)}</div>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .featured-card { transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
+  .featured-card:hover, .featured-card:focus-within { border-color: rgba(179, 136, 255, .45); box-shadow: 0 18px 38px rgba(179, 136, 255, .12); transform: translateY(-3px); }
+</style>

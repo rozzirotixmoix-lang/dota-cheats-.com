@@ -1,0 +1,11 @@
+---
+import type {SampleReview} from '../data/reviews';
+interface Props {review:SampleReview;}
+const {review}=Astro.props;
+---
+<article class="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
+ <p class="text-xs uppercase tracking-wider text-primary">Illustrative review · {review.topic}</p>
+ <p class="mt-4 tracking-widest text-primary" aria-label={'Example rating: '+review.rating+' of 5'}>{'★'.repeat(review.rating)}<span class="text-muted-foreground">{'☆'.repeat(5-review.rating)}</span></p>
+ <p class="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">{review.body}</p>
+ <div class="mt-6 flex flex-wrap justify-between gap-2 border-t border-border pt-4 text-xs text-muted-foreground"><span>{review.author}</span><time datetime={review.date}>Nov 7, 2026</time></div>
+</article>
