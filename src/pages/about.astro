@@ -8,6 +8,7 @@ import LegalPage from '../components/LegalPage.astro';
 import { breadcrumbSchema, organizationSchema, webPageSchema } from '../utils/schema';
 
 const content = t.legalPages.about;
+const pageHeading = 'Resource: Dota 2 Feature Information & Cheats';
 const sections = [
   ...content.sections,
   {
@@ -15,6 +16,7 @@ const sections = [
     paragraphs: [
       'Use the comparisons as a starting point for research, not as a promise that a feature, price, game build, or access term is currently available. Product listings and seller documentation can change, so check those sources before making a decision.',
       'The site separates informational pages from external purchase destinations. When you follow an affiliate link, the seller controls checkout, delivery, account access, support, and its own policies. This resource does not handle payments or store purchase credentials.',
+      'Editorial pages are written to distinguish built-in practice options from third-party software, and they identify illustrative discussions as examples. Readers should use official documentation and the external seller’s current listing when they need a current technical or commercial answer.',
     ],
   },
 ];
@@ -37,7 +39,7 @@ const sections = [
   ]}
 >
   <LegalPage
-    title={content.title}
+    title={pageHeading}
     description={content.description}
     breadcrumbLabel="About"
     sections={sections}

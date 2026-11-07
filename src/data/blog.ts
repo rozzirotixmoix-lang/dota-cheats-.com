@@ -26,6 +26,37 @@ const readField = (block: string, label: string) => {
   return inlineValue || lines.slice(index + 1).find((line) => line.trim())?.trim() || '';
 };
 
+const articleSeoOverrides: Record<string, Pick<BlogArticle, 'title' | 'metaTitle' | 'metaDescription'>> = {
+  'dota-2-cheats-commands-codes': {
+    title: 'Commands: Dota 2 Cheat Codes Guide',
+    metaTitle: 'Commands: Dota 2 Cheat Codes Guide | Dota Cheats',
+    metaDescription: 'Commands for Dota 2 private lobbies: learn which built-in options work for testing and which are restricted in public matches.',
+  },
+  'best-dota-2-console-commands': {
+    title: 'Console Commands: Testing and Setup Guide',
+    metaTitle: 'Console Commands: Testing & Setup Guide | Dota Cheats',
+    metaDescription: 'Console commands for private practice, configuration, and testing. Learn how to open the developer console and use supported settings.',
+  },
+  'dota-2-cheats-not-working-fix': {
+    title: 'Cheat Commands: Common Fixes for Dota 2',
+    metaTitle: 'Cheat Commands: Common Fixes for Dota 2 | Dota Cheats',
+    metaDescription: 'Cheat command troubleshooting for private lobbies: check settings, syntax, permissions, and developer-console access step by step.',
+  },
+};
+
+function reduceCommandRepetition(content: string[]): string[] {
+  return content.map((part) => part
+    .replace('Popular Dota 2 Cheat Commands', 'Popular Practice Options')
+    .replace('These commands require an appropriate practice environment.', 'These options require an appropriate practice environment.')
+    .replace('They should not be confused with commands that provide advantages in public matchmaking.', 'They should not be confused with settings that provide advantages in public matchmaking.')
+    .replace('What Can You Actually Do With These Commands?', 'What Can You Actually Do With These Options?')
+    .replace('built-in commands are not a way to activate', 'built-in options are not a way to activate')
+    .replace('Private lobby commands and external modifications', 'Private-lobby options and external modifications')
+    .replace('The built-in practice commands are part of the game.', 'The built-in practice options are part of the game.')
+    .replace('Dota 2 has plenty of useful built-in commands', 'Dota 2 has plenty of useful built-in practice options')
+    .replace('understanding which commands are supported', 'understanding which options are supported'));
+}
+
 export const blogArticles: BlogArticle[] = blogSource.replaceAll('\r\n', '\n')
   .split(/^ARTICLE \d+$/m)
   .slice(1)
@@ -33,16 +64,18 @@ export const blogArticles: BlogArticle[] = blogSource.replaceAll('\r\n', '\n')
     const slug = readField(block, 'URL SLUG');
     const title = readField(block, 'ARTICLE TITLE');
     const articleBody = block.split(/^FULL ARTICLE$/m)[1]?.trim() ?? '';
+    const seo = articleSeoOverrides[slug];
+    const content = articleBody.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
     return {
-      title,
+      title: seo?.title ?? title,
       slug,
-      metaTitle: readField(block, 'META TITLE'),
-      metaDescription: readField(block, 'META DESCRIPTION'),
+      metaTitle: seo?.metaTitle ?? readField(block, 'META TITLE'),
+      metaDescription: seo?.metaDescription ?? readField(block, 'META DESCRIPTION'),
       category: readField(block, 'CATEGORY'),
       publishedAt: readField(block, 'PUBLISH DATE'),
       date: ['2026-10-18', '2026-09-12', '2026-08-04', '2026-06-23', '2026-05-16'][index] ?? '',
       excerpt: readField(block, 'EXCERPT / SUMMARY'),
-      content: articleBody.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean),
+      content: slug === 'dota-2-cheats-commands-codes' ? reduceCommandRepetition(content) : content,
       image: index === 0 ? '/images/showcase/dota-gameplay.webp' : siteImages[index - 1]?.src ?? '',
       imageAlt: index === 0 ? `Dota 2 gameplay for ${title}` : siteImages[index - 1]?.alt ?? `Dota 2 gameplay for ${title}`,
       readMinutes: [8, 7, 9, 6, 6][index] ?? 6,

@@ -18,7 +18,9 @@ export const forumPosts:ForumPost[]=[
     "body": [
       "A feature label alone does not explain whether markers reflect live information or a player's last known location. That distinction changes how I would assess the display.",
       "A clear explanation should state which marker types appear, when they update, and whether each one can be hidden. Asking for a screenshot at a normal game resolution can also make the layout easier to judge.",
-      "I would compare controls for marker size, label length, and visual contrast before relying on a preview. Specific documentation is more useful than a broad claim with no examples."
+      "I would compare controls for marker size, label length, and visual contrast before relying on a preview. Specific documentation is more useful than a broad claim with no examples.",
+      "It also helps to separate permanent information from temporary indicators. A listing can describe a marker clearly without implying that it offers a complete view of a match.",
+      "Before deciding, I would check whether the interface explains range limits, update timing, and how individual categories can be turned off. Those details make a comparison more useful than a general feature label."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
@@ -57,7 +59,9 @@ export const forumPosts:ForumPost[]=[
     "body": [
       "I play a small character pool. A generic scripts label does not tell me whether my preferred abilities and items are covered.",
       "A useful comparison begins with a current support list and a short explanation of how ability order, item use, and manual input interact. That helps people decide whether a listed option fits the characters they actually play.",
-      "Before comparing automation options, I would check whether controls can be interrupted, whether individual actions can be disabled, and whether the documentation names the game build it covers."
+      "Before comparing automation options, I would check whether controls can be interrupted, whether individual actions can be disabled, and whether the documentation names the game build it covers.",
+      "A short example is often more informative than a broad compatibility claim. It should explain the expected input, the order of actions, and what happens when a player takes control manually.",
+      "Patch notes and support documentation are worth checking as well. They can show whether an option has changed and whether the listed behavior applies to the current build."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",

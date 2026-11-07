@@ -16,9 +16,15 @@ if (!post) return Astro.redirect('/forum/');
 const path = `/forum/${post.slug}/`;
 const metaDescriptions: Record<string, string> = {
   'hero-combo': 'Explore what to confirm about hero support, ability coverage, item behavior, and manual control before comparing automation options.',
+  'map-overlay': 'Minimap hack questions: learn what to confirm about marker timing, live information, and last-seen positions before comparing an overlay.',
   'ward-controls': 'Review ward display questions, scaling, marker controls, and readability considerations before comparing an overlay configuration.',
 };
 const description = metaDescriptions[post.slug] ?? post.excerpt;
+const heading = post.slug === 'map-overlay'
+  ? `${post.title} — Dota 2 cheats`
+  : post.slug === 'hero-combo'
+    ? `${post.title} — Dota 2 cheats`
+    : post.title;
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forum/' }, { name: post.category, path: '/forum/' }, { name: post.title, path }];
 const relatedPosts = [
   ...forumPosts.filter((item) => item.slug !== post.slug && item.category === post.category),
@@ -41,7 +47,7 @@ const relatedPosts = [
             </div>
             <div class="forum-detail-content">
               <div class="forum-post-meta"><span class={`forum-community-avatar tone-${post.categoryTone}`}><Icon name="users" size={15} /></span><a href="/forum/" class="forum-community-name">d/{post.category.toLowerCase().replaceAll(' ', '')}</a><span>·</span><span><Icon name="userRound" size={13} /> {post.author}</span><span>{post.age}</span></div>
-              <h1>{post.title}</h1>
+              <h1>{heading}</h1>
               {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
               <div class="forum-detail-copy">{post.body.map((paragraph) => <p>{paragraph}</p>)}</div>
               {post.suggestedLinks?.length ? <section class="forum-source forum-source--detail" aria-label="Related references"><span>Related references: </span>{post.suggestedLinks.map((link, index) => <><a href={link.href}>{link.label}</a>{index < post.suggestedLinks!.length - 1 && <span> · </span>}</>)}</section> : null}
