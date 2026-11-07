@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /go/
 
-Sitemap: https://dota-cheats.com/sitemap.xml
+Sitemap: https://dota-cheats--com.pages.dev/sitemap.xml

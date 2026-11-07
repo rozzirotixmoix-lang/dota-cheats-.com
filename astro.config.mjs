@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://dota-cheats.com',
+  site: 'https://dota-cheats--com.pages.dev',
   trailingSlash: 'always',
   compressHTML: true,
   prefetch: {
@@ -16,7 +16,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404') && !page.includes('/go/'),
+      filter: (page) => !page.includes('/404') && !page.includes('/go/') && !page.includes('/reviews/'),
       serialize: sitemapSerialize,
     }),
   ],

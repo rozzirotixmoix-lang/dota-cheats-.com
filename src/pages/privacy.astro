@@ -7,6 +7,16 @@ import { breadcrumbSchema, webPageSchema } from '../utils/schema';
 
 const content = t.legalPages.privacy;
 const seo = resolvePageSeo('/privacy/');
+const sections = [
+  ...content.sections,
+  {
+    heading: 'What this site does not collect',
+    paragraphs: [
+      'This informational site does not provide account registration, public posting, or payment processing. It does not ask visitors to submit license keys, passwords, or order details. If a browser stores a theme preference, that preference remains on the device unless the browser is cleared.',
+      'Following an external purchase link takes you to a separate service with its own privacy notice, cookie practices, and payment process. Review that service’s information before entering personal or payment details, and use its verified support channel for order questions.',
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -28,6 +38,6 @@ const seo = resolvePageSeo('/privacy/');
     title={content.title}
     description={content.description}
     breadcrumbLabel="Privacy Policy"
-    sections={content.sections}
+    sections={sections}
   />
 </BaseLayout>

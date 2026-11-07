@@ -15,7 +15,7 @@ for(const rel of files){
  const canonical=value(html,/<link rel="canonical" href="([^"]*)"/);
  if(!title||titles.has(title))failures.push(route+' missing/duplicate title');titles.add(title);
  if(!desc||descriptions.has(desc))failures.push(route+' missing/duplicate description');descriptions.add(desc);
- if(canonical!=='https://dota-cheats.com'+route)failures.push(route+' canonical: '+canonical);
+ if(canonical!=='https://dota-cheats--com.pages.dev'+route)failures.push(route+' canonical: '+canonical);
  const h1=(html.match(/<h1\b/g)||[]).length;
  if(h1!==1)failures.push(route+' has '+h1+' h1 headings');
  if(/undetected|fortnite|dotacheats\.com|\/guides\//i.test(html))failures.push(route+' residual content');
@@ -28,15 +28,16 @@ for(const rel of files){
  if((route==='/'&&images.length!==3)||(route==='/products/dota-2-cheats/'&&images.length!==4)||(route==='/blog/'&&images.length!==4)||(route!=='/'&&route!=='/products/dota-2-cheats/'&&route!=='/blog/'&&images.length))failures.push(route+' unexpected content image count '+images.length);
  for(const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)){
   const raw=match[1];if(!raw.startsWith('/')||raw.startsWith('//'))continue;
-  const target=raw.split(/[?#]/)[0];if(target==='/go/dota-2/')continue;links++;
-  const file=path.join(dist,target.endsWith('/')?target+'index.html':target);
+  const target=raw.split(/[?#]/)[0];links++;
+  const localTarget=target.replace(/^\/+/, '');
+  const file=path.join(dist,localTarget === '' ? 'index.html' : localTarget.endsWith('/') ? localTarget+'index.html' : localTarget);
   if(!fs.existsSync(file))failures.push(route+' broken asset/link '+target);
  }
 }
 const sitemap=fs.readFileSync(path.join(dist,'sitemap.xml'),'utf8');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1]);
 if(urls.length!==indexable)failures.push('Sitemap count '+urls.length+' vs '+indexable+' indexable pages');
-for(const url of urls){if(!url.startsWith('https://dota-cheats.com/')||/reviews|guides|404|\/go\//.test(url))failures.push('Unexpected sitemap URL '+url);}
+for(const url of urls){if(!url.startsWith('https://dota-cheats--com.pages.dev/')||/reviews|guides|404|\/go\//.test(url))failures.push('Unexpected sitemap URL '+url);}
 const result={pages:files.length,indexablePages:indexable,uniqueTitles:titles.size,uniqueDescriptions:descriptions.size,contentImages,jsonLdBlocks:schemas,checkedInternalReferences:links,sitemapUrls:urls.length,failures};
 fs.mkdirSync('artifacts',{recursive:true});fs.writeFileSync('artifacts/site-validation.json',JSON.stringify(result,null,2));
 console.log(JSON.stringify(result,null,2));assert.equal(failures.length,0,'Site validation failed');

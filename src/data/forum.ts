@@ -9,14 +9,16 @@ export const forumPosts:ForumPost[]=[
     "category": "Map & ESP",
     "categoryTone": "blue",
     "title": "Is a minimap hack showing live positions or last-seen markers?",
-    "excerpt": "The listing just says minimap hack. I want to know whether that means live information or the last place someone was visible.",
+    "excerpt": "I want to know whether a listing describes live information or the last place someone was visible.",
     "author": "lane_reader",
     "age": "Nov 7, 2026",
     "commentsCount": 3,
     "upvotes": 0,
     "flair": "Illustrative discussion",
     "body": [
-      "The listing just says minimap hack. I want to know whether that means live information or the last place someone was visible."
+      "A feature label alone does not explain whether markers reflect live information or a player's last known location. That distinction changes how I would assess the display.",
+      "A clear explanation should state which marker types appear, when they update, and whether each one can be hidden. Asking for a screenshot at a normal game resolution can also make the layout easier to judge.",
+      "I would compare controls for marker size, label length, and visual contrast before relying on a preview. Specific documentation is more useful than a broad claim with no examples."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
@@ -46,27 +48,29 @@ export const forumPosts:ForumPost[]=[
     "category": "Scripts",
     "categoryTone": "purple",
     "title": "Auto combo: what should I ask about hero support?",
-    "excerpt": "I play a small hero pool. A generic scripts label does not tell me whether my heroes and items are covered.",
+    "excerpt": "I play a small character pool. A generic scripts label does not tell me whether my preferred abilities and items are covered.",
     "author": "tangent",
     "age": "Nov 7, 2026",
     "commentsCount": 3,
     "upvotes": 0,
     "flair": "Illustrative discussion",
     "body": [
-      "I play a small hero pool. A generic scripts label does not tell me whether my heroes and items are covered."
+      "I play a small character pool. A generic scripts label does not tell me whether my preferred abilities and items are covered.",
+      "A useful comparison begins with a current support list and a short explanation of how ability order, item use, and manual input interact. That helps people decide whether a listed option fits the characters they actually play.",
+      "Before comparing automation options, I would check whether controls can be interrupted, whether individual actions can be disabled, and whether the documentation names the game build it covers."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
     "comments": [
       {
         "author": "spellqueue",
-        "body": "Start with a hero-by-hero list. Item order and the ability to interrupt a sequence are separate questions.",
+        "body": "Start with a character-by-character list. Item order and the ability to interrupt a sequence are separate questions.",
         "age": "Nov 7, 2026",
         "score": 0
       },
       {
         "author": "midlate",
-        "body": "A long supported-hero list looked good until I noticed the abilities I use were not mentioned. Worth checking the details.",
+        "body": "A long support list looked good until I noticed the abilities I use were not mentioned. Worth checking the details.",
         "age": "Nov 7, 2026",
         "score": 0
       },
@@ -83,14 +87,16 @@ export const forumPosts:ForumPost[]=[
     "category": "Map & ESP",
     "categoryTone": "blue",
     "title": "Ward ESP gets crowded — which display controls matter?",
-    "excerpt": "Looking at overlay layouts, I keep coming back to readability. What would you check before choosing a ward display?",
+    "excerpt": "Looking at overlay layouts, I keep coming back to readability. What would you check before choosing a display?",
     "author": "river_note",
     "age": "Nov 7, 2026",
     "commentsCount": 3,
     "upvotes": 0,
     "flair": "Illustrative discussion",
     "body": [
-      "Looking at overlay layouts, I keep coming back to readability. What would you check before choosing a ward display?"
+      "Looking at overlay layouts, I keep coming back to readability. What would you check before choosing a display?",
+      "I would look for separate controls for marker type, range rings, label size, and contrast. A preview should show how the information reads during normal play rather than only in a close-up image.",
+      "Resolution and interface scale matter too. A layout that appears clear on a large desktop monitor may become crowded on a laptop, so the available scaling options are worth confirming first."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",

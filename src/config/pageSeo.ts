@@ -9,24 +9,24 @@ export const PAGE_SEO:Record<string,PageSeoEntry>={
     "description": "Compare Dota 2 cheats, ESP and aimbot features. Review scripts, map overlays, cosmetics and compatibility questions before choosing access."
   },
   "/forum/": {
-    "title": "Dota 2 Forums | Feature & Purchase Discussions",
+    "title": "Forums – Feature & Purchase Discussions | Dota Cheats",
     "description": "Explore Dota 2 cheats, ESP and aimbot questions in illustrative forum discussions. Compare settings, compatibility and purchase considerations."
   },
   "/faq/": {
-    "title": "Dota 2 Cheats FAQ | Features, Access & Compatibility",
-    "description": "Dota 2 cheats, ESP and aimbot questions answered. Understand feature terminology, external purchases and the details to confirm before checkout."
+    "title": "Features FAQ | Access & Compatibility | Dota Cheats",
+    "description": "Features FAQ covering terminology, compatibility, external purchases, and the practical details to confirm before visiting a seller's checkout page."
   },
   "/about/": {
-    "title": "About This Dota 2 Feature Resource",
-    "description": "Learn how this independent Dota 2 resource presents feature comparisons, affiliate purchase links and clearly labeled sample discussions."
+    "title": "Resource – Dota 2 Feature Information | Dota Cheats",
+    "description": "This independent resource explains Dota 2 feature terminology, affiliate purchase links, and clearly labeled discussion examples for visitors."
   },
   "/support/": {
     "title": "Dota 2 Help | Purchase & Compatibility Questions",
     "description": "Find help with Dota 2 feature comparisons and purchase questions. Prepare the right details for the external seller’s support team."
   },
   "/privacy/": {
-    "title": "Privacy | Dota Cheats",
-    "description": "Read how this static Dota 2 resource uses browser preferences and external affiliate purchase links."
+    "title": "Privacy – Static Dota 2 Resource | Dota Cheats",
+    "description": "Privacy information explains how this static Dota 2 resource handles browser preferences, affiliate purchase links, and external checkout pages."
   },
   "/terms/": {
     "title": "Site Terms & External Purchases | Dota Cheats",

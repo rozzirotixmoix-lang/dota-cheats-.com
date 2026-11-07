@@ -2,7 +2,7 @@ import type { Translations } from './types';
 export const en: Translations = {
   "site": {
     "name": "Dota Cheats",
-    "domain": "dota-cheats.com",
+    "domain": "dota-cheats--com.pages.dev",
     "title": "Dota 2 Cheats | Scripts, ESP & Feature Comparisons",
     "description": "Compare Dota 2 cheats, ESP and aimbot terminology. Explore hero scripts, map overlays, cosmetics and questions to ask before purchase.",
     "discord": "/forum/"
@@ -299,7 +299,7 @@ export const en: Translations = {
         "title": "Orders and billing",
         "desc": "Use the support details in your purchase confirmation. Never share license keys or passwords in a public post.",
         "linkLabel": "View purchase page",
-        "href": "/go/dota-2/"
+        "href": "https://zadeyo.com/go/MOIX?to=%2Fproducts%2Fdota-2"
       }
     ],
     "ticketTitle": "Useful details for purchase support",

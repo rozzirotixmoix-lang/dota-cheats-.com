@@ -8,6 +8,16 @@ import LegalPage from '../components/LegalPage.astro';
 import { breadcrumbSchema, organizationSchema, webPageSchema } from '../utils/schema';
 
 const content = t.legalPages.about;
+const sections = [
+  ...content.sections,
+  {
+    heading: 'Using this resource',
+    paragraphs: [
+      'Use the comparisons as a starting point for research, not as a promise that a feature, price, game build, or access term is currently available. Product listings and seller documentation can change, so check those sources before making a decision.',
+      'The site separates informational pages from external purchase destinations. When you follow an affiliate link, the seller controls checkout, delivery, account access, support, and its own policies. This resource does not handle payments or store purchase credentials.',
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -30,6 +40,6 @@ const content = t.legalPages.about;
     title={content.title}
     description={content.description}
     breadcrumbLabel="About"
-    sections={content.sections}
+    sections={sections}
   />
 </BaseLayout>
