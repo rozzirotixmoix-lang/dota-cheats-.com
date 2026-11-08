@@ -69,7 +69,10 @@ export const forumPosts:ForumPost[]=[
       "The description should distinguish optional assistance from actions that happen automatically. That distinction helps readers compare controls without assuming that every listed setting behaves in the same way.",
       "I would test one setting at a time in a private environment and keep manual control available. A clear explanation of limits and overrides matters more than a long feature list.",
       "I would compare the stated behavior with a current patch note or a short demonstration before relying on it. Specific examples make it easier to tell which settings are optional and which are fixed.",
-      "Questions about controls should also cover accessibility: key bindings, visual clarity, and whether a user can disable an individual option without resetting everything else."
+      "Questions about controls should also cover accessibility: key bindings, visual clarity, and whether a user can disable an individual option without resetting everything else.",
+      "Compatibility questions are easier to answer when they are specific. Ask which hero, ability, item, game version, and input method are involved. A precise question gives a seller or support team a useful starting point and avoids treating a broad feature label as a guarantee of current coverage.",
+      "It is also worth checking how an option behaves after a patch. A reliable comparison should identify the date of the information, link to the relevant update notes where available, and state when a listed behavior has not been independently verified. That context helps players make a more informed decision.",
+      "Finally, keep account and game rules in view. Information about controls or compatibility does not change the rules that apply to public matches. When in doubt, use private practice tools for learning and consult official Dota 2 policies before installing or relying on third-party software."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
