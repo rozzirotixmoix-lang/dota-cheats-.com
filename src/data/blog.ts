@@ -42,6 +42,11 @@ const articleSeoOverrides: Record<string, Pick<BlogArticle, 'title' | 'metaTitle
     metaTitle: 'Cheat Fixes: Dota 2 Private Lobby Settings | Cheats',
     metaDescription: 'Cheat command troubleshooting for private lobbies: check settings, syntax, permissions, and developer-console access step by step.',
   },
+  'how-to-enable-cheats-in-dota-2': {
+    title: 'How to Enable Cheats in Dota 2: Private Lobby Setup Guide',
+    metaTitle: 'How to Enable Cheats in Dota 2 Private Lobbies | Guide',
+    metaDescription: 'Learn how to enable cheats in Dota 2 private lobbies, activate supported practice commands, and test heroes, abilities, and items safely.',
+  },
 };
 
 function reduceCommandRepetition(content: string[]): string[] {

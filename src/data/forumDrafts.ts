@@ -19,6 +19,14 @@ const readSection = (block: string, start: string, end?: string) => {
   return (end ? section.split(end)[0] : section).trim();
 };
 
+const additionalDiscussionContext: Record<string, string[]> = {
+  'dota-2-cheating-discussions-new-player-guide': [
+    'For a new player, the most useful distinction is between built-in practice features and software that changes normal match behaviour. Dota 2 private lobbies can include supported settings for testing heroes, items, and abilities. Those settings do not apply to public matchmaking, and they should not be treated as a shortcut for learning core mechanics.',
+    'Account safety is another practical reason to slow down before installing anything. Check who publishes a program, read the current game rules, and avoid downloads that ask for passwords, disable security tools, or promise impossible results. When a claim is unclear, use official Dota 2 and Steam support material as the starting point rather than an unverified video or reposted file.',
+    'A steady learning plan is usually more useful than chasing a quick advantage. Practice one hero, review a replay, test an item interaction in a private lobby, then return to normal play. That gives newer players a clear way to improve while keeping fair-play expectations and account security in view.',
+  ],
+};
+
 export const staffForumDrafts: StaffForumDraft[] = forumSource.replaceAll('\r\n', '\n')
   .split(/^## THREAD \d+$/m)
   .slice(1)
@@ -33,7 +41,10 @@ export const staffForumDrafts: StaffForumDraft[] = forumSource.replaceAll('\r\n'
       title: readField(block, 'THREAD TITLE'),
       excerpt: readField(block, 'THREAD EXCERPT'),
       publishedAt: readField(block, 'PUBLICATION DATE'),
-      body: readSection(block, '**ORIGINAL POST:**', '**SUGGESTED REPLIES:**').split(/\n{2,}/).map((part) => part.trim()).filter(Boolean),
+      body: [
+        ...readSection(block, '**ORIGINAL POST:**', '**SUGGESTED REPLIES:**').split(/\n{2,}/).map((part) => part.trim()).filter(Boolean),
+        ...(additionalDiscussionContext[readField(block, 'URL SLUG')] ?? []),
+      ],
       replies,
       suggestedLinks: [...block.matchAll(/- Anchor: (.+?) \| (https?:\/\/\S+)/g)].map((match) => ({ label: match[1].trim(), href: match[2].trim() })),
     };

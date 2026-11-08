@@ -494,6 +494,6 @@ forumPosts.push(...staffForumDrafts.map((draft) => ({
 })));
 
 for (const post of forumPosts) {
-  post.sourceTitle = 'Products';
+  post.sourceTitle = `Product details for ${post.title}`;
   post.sourcePath = '/products/dota-2-cheats/';
 }

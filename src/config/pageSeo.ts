@@ -17,7 +17,7 @@ export const PAGE_SEO:Record<string,PageSeoEntry>={
     "description": "Features FAQ covering terminology, compatibility, external purchases, and the practical details to confirm before visiting a seller's checkout page."
   },
   "/about/": {
-    "title": "Resource – Dota 2 Feature Information | Cheats",
+    "title": "Dota 2 Feature Information and Safety Notes | Cheats",
     "description": "This independent resource explains Dota 2 feature terminology, affiliate purchase links, and clearly labeled discussion examples for visitors."
   },
   "/support/": {
@@ -25,11 +25,11 @@ export const PAGE_SEO:Record<string,PageSeoEntry>={
     "description": "Find help with Dota 2 feature comparisons and purchase questions. Prepare the right details for the external seller’s support team."
   },
   "/privacy/": {
-    "title": "Privacy – Static Dota 2 Resource | Dota Cheats",
+    "title": "Dota 2 Resource Privacy, Cookies and Checkout Links",
     "description": "Privacy information explains how this static Dota 2 resource handles browser preferences, affiliate purchase links, and external checkout pages."
   },
   "/terms/": {
-    "title": "Site Terms & External Purchases | Dota Cheats",
+    "title": "Dota 2 Site Terms, Content and External Purchases",
     "description": "Understand the limits of feature comparisons, illustrative community content and purchases handled by an external seller."
   }
 };
