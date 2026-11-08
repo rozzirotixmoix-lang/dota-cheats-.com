@@ -34,15 +34,6 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
     </nav>
 
     <div class="ml-auto flex shrink-0 items-center gap-2 sm:gap-3 xl:ml-0 xl:justify-self-end">
-      <details class="language-selector relative hidden sm:block">
-        <summary class="flex h-10 list-none items-center gap-2 rounded-xl border border-white/15 bg-[#100d19] px-3 text-[13px] font-bold text-white transition-colors hover:border-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]">
-          <Icon name="globe" size={16} strokeWidth={1.6} /><span>EN</span><Icon name="chevronDown" size={15} strokeWidth={1.6} />
-        </summary>
-        <div class="absolute right-0 top-[calc(100%+0.5rem)] w-40 rounded-xl border border-white/10 bg-[#14101f] p-1.5 shadow-xl shadow-black/30">
-          <button type="button" class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-white transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]" data-language-option="EN"><Icon name="globe" size={15} strokeWidth={1.6} /> English</button>
-        </div>
-      </details>
-
       <a href={purchaseUrl} class="try-now-btn hidden h-10 items-center overflow-hidden rounded-xl bg-[#f7f6fb] text-[13px] font-bold text-[#161220] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#b388ff]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d0b14] sm:inline-flex" aria-label={t.ui.checkoutAria}>
         <span class="px-3.5">Try Now</span><span class="flex h-full w-10 items-center justify-center border-l border-black/10 bg-[#e9e7ef]" aria-hidden="true"><Icon name="arrowRight" size={17} strokeWidth={1.8} /></span>
       </a>
@@ -64,10 +55,6 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
             ))}
           </nav>
           <div class="mt-auto grid gap-3 border-t border-white/10 pt-5">
-            <details class="language-selector relative sm:hidden">
-              <summary class="flex h-11 list-none items-center justify-between rounded-xl border border-white/15 bg-[#100d19] px-3 text-sm font-bold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]"><span class="inline-flex items-center gap-2"><Icon name="globe" size={16} strokeWidth={1.6} /> EN</span><Icon name="chevronDown" size={15} strokeWidth={1.6} /></summary>
-              <div class="mt-2 rounded-xl border border-white/10 bg-[#100d19] p-1.5"><button type="button" class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-semibold text-white hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]" data-language-option="EN"><Icon name="globe" size={15} strokeWidth={1.6} /> English</button></div>
-            </details>
             <a href={purchaseUrl} class="try-now-btn inline-flex h-11 items-center justify-between overflow-hidden rounded-xl bg-[#f7f6fb] text-sm font-bold text-[#161220] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]"><span class="px-4">Try Now</span><span class="flex h-full w-11 items-center justify-center border-l border-black/10 bg-[#e9e7ef]" aria-hidden="true"><Icon name="arrowRight" size={18} strokeWidth={1.8} /></span></a>
           </div>
         </SheetContent>
@@ -79,8 +66,6 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
 <style>
   .nav-shell { background: linear-gradient(110deg, #0d0b14 0%, #14101f 100%); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 12px 30px rgba(0, 0, 0, 0.18); transition: background 150ms ease, box-shadow 150ms ease; }
   .is-scrolled .nav-shell { background: rgba(13, 11, 20, .76); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 12px 30px rgba(0, 0, 0, 0.26); backdrop-filter: blur(18px); }
-  .language-selector > summary::-webkit-details-marker { display: none; }
-  .language-selector[open] > summary { border-color: rgba(179, 136, 255, 0.7); }
 </style>
 
 <script>
