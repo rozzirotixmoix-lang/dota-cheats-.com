@@ -71,8 +71,7 @@ const sourceTimestamp = (_path?: string) => Date.parse('2026-11-07');
                   {post.sourceTitle && <p class="forum-source">Related: <a href={post.sourcePath}>{post.sourceTitle}</a></p>}
                   <div class="forum-post-actions">
                     {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
-                    <a href={`/forum/${post.slug}/`}><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</a>
-                    <a href={`/forum/${post.slug}/`}><Icon name="arrowRight" size={15} /> Read discussion</a>
+                    <span class="forum-post-meta-item"><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</span>
                   </div>
                 </div>
               </article>
