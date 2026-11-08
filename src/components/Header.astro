@@ -15,6 +15,13 @@ const navigation: { href: string; label: string; icon: IconName }[] = [
   { href: '/faq/', label: 'FAQ', icon: 'navFaq' },
   { href: '/support/', label: 'Support', icon: 'navSupport' },
 ];
+const mobileNavigationLabels: Record<string, string> = {
+  Products: 'Explore products',
+  Blog: 'Read the blog',
+  Forum: 'Browse forum',
+  FAQ: 'View FAQs',
+  Support: 'Contact support',
+};
 const isActive = (href: string) => currentPath === href || currentPath.startsWith(href);
 ---
 
@@ -50,12 +57,12 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
           <nav class="flex flex-col gap-1" aria-label="Mobile">
             {navigation.map((link) => (
               <a href={link.href} class:list={['flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold uppercase tracking-[0.08em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]', isActive(link.href) ? 'bg-white/8 text-white' : 'text-[#a19eaf] hover:bg-white/5 hover:text-white']} aria-current={isActive(link.href) ? 'page' : undefined}>
-                <Icon name={link.icon} size={17} strokeWidth={1.6} />{link.label}<span class="sr-only"> in mobile navigation</span>
+                <Icon name={link.icon} size={17} strokeWidth={1.6} />{mobileNavigationLabels[link.label] ?? link.label}
               </a>
             ))}
           </nav>
           <div class="mt-auto grid gap-3 border-t border-white/10 pt-5">
-            <a href={purchaseUrl} class="try-now-btn inline-flex h-11 items-center justify-between overflow-hidden rounded-xl bg-[#f7f6fb] text-sm font-bold text-[#161220] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]"><span class="px-4">Try Now<span class="sr-only"> from mobile navigation</span></span><span class="flex h-full w-11 items-center justify-center border-l border-black/10 bg-[#e9e7ef]" aria-hidden="true"><Icon name="arrowRight" size={18} strokeWidth={1.8} /></span></a>
+            <a href={purchaseUrl} class="try-now-btn inline-flex h-11 items-center justify-between overflow-hidden rounded-xl bg-[#f7f6fb] text-sm font-bold text-[#161220] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]"><span class="px-4">Start now</span><span class="flex h-full w-11 items-center justify-center border-l border-black/10 bg-[#e9e7ef]" aria-hidden="true"><Icon name="arrowRight" size={18} strokeWidth={1.8} /></span></a>
           </div>
         </SheetContent>
       </Sheet>
