@@ -22,7 +22,9 @@ export const forumPosts:ForumPost[]=[
       "It also helps to separate permanent information from temporary indicators. A listing can describe a marker clearly without implying that it offers a complete view of a match.",
       "Before deciding, I would check whether the interface explains range limits, update timing, and how individual categories can be turned off. Those details make a comparison more useful than a general feature label.",
       "A sensible preview should show the display during ordinary movement, not only a still image. That makes it easier to judge whether labels remain readable when several events happen at once.",
-      "I would also look for a clear reset option. Being able to return to a simple layout after testing a setting is more useful than having a long list of controls with no explanation."
+      "I would also look for a clear reset option. Being able to return to a simple layout after testing a setting is more useful than having a long list of controls with no explanation.",
+      "It is worth checking whether display scale and contrast can be adjusted separately. A setting that looks clear on one monitor may need a different balance on a smaller screen or a different interface scale.",
+      "The most useful documentation explains both the purpose of a marker and the option used to hide it. That gives readers a practical way to compare layouts without relying on broad promotional language."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
@@ -65,7 +67,9 @@ export const forumPosts:ForumPost[]=[
       "A short example is often more informative than a broad compatibility claim. It should explain the expected input, the order of actions, and what happens when a player takes control manually.",
       "Patch notes and support documentation are worth checking as well. They can show whether an option has changed and whether the listed behavior applies to the current build.",
       "The description should distinguish optional assistance from actions that happen automatically. That distinction helps readers compare controls without assuming that every listed setting behaves in the same way.",
-      "I would test one setting at a time in a private environment and keep manual control available. A clear explanation of limits and overrides matters more than a long feature list."
+      "I would test one setting at a time in a private environment and keep manual control available. A clear explanation of limits and overrides matters more than a long feature list.",
+      "I would compare the stated behavior with a current patch note or a short demonstration before relying on it. Specific examples make it easier to tell which settings are optional and which are fixed.",
+      "Questions about controls should also cover accessibility: key bindings, visual clarity, and whether a user can disable an individual option without resetting everything else."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",

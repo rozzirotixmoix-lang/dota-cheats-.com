@@ -10,6 +10,10 @@ const s = t.features;
 function isScriptsHero(title: string) {
   return title === 'Scripts';
 }
+
+function featureHeading(title: string) {
+  return title === 'Skin Changer' ? 'Cosmetic options' : title;
+}
 ---
 
 <section id="features" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="features-title">
@@ -40,7 +44,7 @@ function isScriptsHero(title: string) {
                         </span>
                         <div class="min-w-0 space-y-1.5">
                           <h3 class="font-[family-name:var(--font-heading)] text-lg font-bold leading-tight text-foreground md:text-xl">
-                            {item.title}
+                            {featureHeading(item.title)}
                           </h3>
                           <p class="text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300">
                             {item.subtitle}
@@ -83,7 +87,7 @@ function isScriptsHero(title: string) {
                         </span>
                         <div class="min-w-0 space-y-1">
                           <h3 class="font-[family-name:var(--font-heading)] text-base font-bold leading-tight text-foreground md:text-lg">
-                            {item.title}
+                            {featureHeading(item.title)}
                           </h3>
                           <p class="text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300">
                             {item.subtitle}
