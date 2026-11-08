@@ -24,7 +24,10 @@ export const forumPosts:ForumPost[]=[
       "A sensible preview should show the display during ordinary movement, not only a still image. That makes it easier to judge whether labels remain readable when several events happen at once.",
       "I would also look for a clear reset option. Being able to return to a simple layout after testing a setting is more useful than having a long list of controls with no explanation.",
       "It is worth checking whether display scale and contrast can be adjusted separately. A setting that looks clear on one monitor may need a different balance on a smaller screen or a different interface scale.",
-      "The most useful documentation explains both the purpose of a marker and the option used to hide it. That gives readers a practical way to compare layouts without relying on broad promotional language."
+      "The most useful documentation explains both the purpose of a marker and the option used to hide it. That gives readers a practical way to compare layouts without relying on broad promotional language.",
+      "Before comparing displays, write down the exact question you need answered: whether a marker is based on a last known location, how long it remains visible, and which controls change its appearance. That makes it easier to compare the same detail across different descriptions instead of relying on a single broad term.",
+      "A useful support response should also explain what has changed after a game update and what has not been verified. Screenshots can help show the layout, but they should be dated and paired with a short explanation of the test conditions so readers know what they are looking at.",
+      "For game and account safety, keep practice and public-match expectations separate. A readable interface comparison can help with research, but it does not change publisher rules or confirm that a third-party claim is current. Check official policies before acting on any compatibility statement."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
