@@ -10,7 +10,7 @@ const categoryLabel = article.category === 'Guides' ? 'Practice' : article.categ
 <article class:list={['blog-article-card overflow-hidden rounded-2xl border border-[#b388ff]/25 bg-[#14101f]', featured ? 'md:grid md:grid-cols-2' : 'flex h-full flex-col']} data-blog-card data-category={article.category} data-link={article.link} tabindex="0">
   <div class:list={['relative aspect-video overflow-hidden bg-gradient-to-br from-[#211938] to-[#0d0b14]', featured && 'md:h-full md:aspect-auto']}>
     <img src={article.image} alt={article.imageAlt} loading={featured ? 'eager' : 'lazy'} class="h-full w-full object-cover" data-blog-image />
-    <div class="absolute inset-0 hidden items-center justify-center" data-image-fallback aria-hidden="true"><img src="/logo.svg" alt="" class="w-16 opacity-70" /></div>
+    <div class="absolute inset-0 hidden items-center justify-center" data-image-fallback aria-hidden="true"><img src="/logo.svg" alt="Dota Cheats logo fallback" class="w-16 opacity-70" /></div>
     <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-[#100d19]/90 px-2.5 py-1.5 text-[11px] font-bold text-white"><Icon name="navBlog" size={14} /> {categoryLabel}</span>
     <time class="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-[#100d19]/90 px-2.5 py-1.5 text-[11px] font-bold text-white"><Icon name="calendar" size={14} /> {article.date}</time>
   </div>

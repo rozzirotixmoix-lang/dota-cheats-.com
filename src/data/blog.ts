@@ -28,7 +28,7 @@ const readField = (block: string, label: string) => {
 
 const articleSeoOverrides: Record<string, Pick<BlogArticle, 'title' | 'metaTitle' | 'metaDescription'>> = {
   'dota-2-cheats-commands-codes': {
-    title: 'Commands: Which Built-In Options Work for Dota 2 Cheats',
+    title: 'Commands: Learn Which Built-In Options Work for Dota 2 Cheats',
     metaTitle: 'Commands – Learn Which Built-In Options Work | Dota Cheats',
     metaDescription: 'Commands for Dota 2 private lobbies: learn which built-in options work for testing and which are restricted in public matches.',
   },

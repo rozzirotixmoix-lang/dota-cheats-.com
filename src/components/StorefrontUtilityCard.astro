@@ -8,7 +8,7 @@ const { product, showImage = true } = Astro.props;
 ---
 
 <article class="utility-card flex h-full min-h-[25rem] flex-col overflow-hidden rounded-2xl border border-[#b388ff]/25 bg-[#14101f]">
-  {showImage && product.image && <a href={product.link} class="utility-card__image relative block h-[7.5rem] shrink-0 overflow-hidden bg-gradient-to-br from-[#211938] to-[#0d0b14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]"><img src={product.image} alt={product.imageAlt ?? product.title} loading="lazy" class="h-full w-full object-cover object-top" data-product-image /><span class="absolute inset-0 hidden items-center justify-center" data-product-image-fallback aria-hidden="true"><img src="/logo.svg" alt="" class="w-14 opacity-70" /></span></a>}
+  {showImage && product.image && <a href={product.link} class="utility-card__image relative block h-[7.5rem] shrink-0 overflow-hidden bg-gradient-to-br from-[#211938] to-[#0d0b14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b388ff]"><img src={product.image} alt={product.imageAlt ?? product.title} loading="lazy" class="h-full w-full object-cover object-top" data-product-image /><span class="absolute inset-0 hidden items-center justify-center" data-product-image-fallback aria-hidden="true"><img src="/logo.svg" alt="Dota Cheats logo fallback" class="w-14 opacity-70" /></span></a>}
   <div class="flex flex-1 flex-col p-5">
     <div class="flex size-9 items-center justify-center rounded-xl border border-[#b388ff]/30 bg-[#b388ff]/10 text-[#b388ff]"><Icon name={product.icon} size={18} strokeWidth={1.6} /></div>
     <p class="mt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[#b388ff]">{product.category}</p>

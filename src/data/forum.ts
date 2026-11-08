@@ -20,7 +20,9 @@ export const forumPosts:ForumPost[]=[
       "A clear explanation should state which marker types appear, when they update, and whether each one can be hidden. Asking for a screenshot at a normal game resolution can also make the layout easier to judge.",
       "I would compare controls for marker size, label length, and visual contrast before relying on a preview. Specific documentation is more useful than a broad claim with no examples.",
       "It also helps to separate permanent information from temporary indicators. A listing can describe a marker clearly without implying that it offers a complete view of a match.",
-      "Before deciding, I would check whether the interface explains range limits, update timing, and how individual categories can be turned off. Those details make a comparison more useful than a general feature label."
+      "Before deciding, I would check whether the interface explains range limits, update timing, and how individual categories can be turned off. Those details make a comparison more useful than a general feature label.",
+      "A sensible preview should show the display during ordinary movement, not only a still image. That makes it easier to judge whether labels remain readable when several events happen at once.",
+      "I would also look for a clear reset option. Being able to return to a simple layout after testing a setting is more useful than having a long list of controls with no explanation."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
@@ -61,7 +63,9 @@ export const forumPosts:ForumPost[]=[
       "A useful comparison begins with a current support list and a short explanation of how ability order, item use, and manual input interact. That helps people decide whether a listed option fits the characters they actually play.",
       "Before comparing automation options, I would check whether controls can be interrupted, whether individual actions can be disabled, and whether the documentation names the game build it covers.",
       "A short example is often more informative than a broad compatibility claim. It should explain the expected input, the order of actions, and what happens when a player takes control manually.",
-      "Patch notes and support documentation are worth checking as well. They can show whether an option has changed and whether the listed behavior applies to the current build."
+      "Patch notes and support documentation are worth checking as well. They can show whether an option has changed and whether the listed behavior applies to the current build.",
+      "The description should distinguish optional assistance from actions that happen automatically. That distinction helps readers compare controls without assuming that every listed setting behaves in the same way.",
+      "I would test one setting at a time in a private environment and keep manual control available. A clear explanation of limits and overrides matters more than a long feature list."
     ],
     "sourceTitle": "Related feature comparison",
     "sourcePath": "/products/dota-2-cheats/",
